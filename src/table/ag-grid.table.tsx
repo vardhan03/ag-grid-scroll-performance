@@ -73,13 +73,13 @@ export default function TestAgGrid() {
   } 
 
   return (
-    <div style={{ height: '500px', width: '100%' }}>
+    <div style={{ height: '100%', width: '100%' }}>
       <Button onClick={handleRowBuffer} variant="outlined">Increase the row Buffer ( +10)</Button> &nbsp;&nbsp;
       <Button onClick={handleRowBufferDec} variant="outlined"> Decrease the row Buffer ( -10)</Button> &nbsp;&nbsp;
       <br />
       <FormControlLabel control={<Checkbox defaultChecked onChange={handleCheckbox}/>} label="Is React UI"></FormControlLabel>
       <span style={{fontWeight: 'bold'}}> Rowbuffer is: {rowBuffer} </span>
-      <br /> <br/> <br/>
+      <br />
       <AgGridReact
         reactUi={isReactUi}
         rowBuffer={rowBuffer}

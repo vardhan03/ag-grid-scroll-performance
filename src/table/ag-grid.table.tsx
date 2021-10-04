@@ -3,18 +3,22 @@ import { ICellRendererParams, RowNode } from 'ag-grid-community'
 import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css'
 import { useEffect, useMemo, useState } from 'react'
-// import HyperLink from '../a_atoms/link/hyperlink/hyperlink.atom'
 import { Checkbox, FormControlLabel, Link } from '@material-ui/core'
 import { Button } from '@material-ui/core'
 
 function MyRenderer(params: ICellRendererParams) {
   return (
     <span style={{ marginLeft: '20px' }}>
-      {/* <img src="https://d1yk6z6emsz7qy.cloudfront.net/static/images/loading.gif" style={{position: 'absolute', top: '0px', left: '0px', width: '40px'}}/> */}
-      <Link underline="hover">{params.value}</Link>
-      {/* <span>{params.value}</span> */}
+      <img src="https://d1yk6z6emsz7qy.cloudfront.net/static/images/loading.gif" style={{position: 'absolute', top: '0px', left: '0px', width: '40px'}}/> 
+       <span>{params.value}</span>
     </span>
   )
+}
+
+function LinkRenderer(params: ICellRendererParams){
+    return (
+        <Link underline="hover">{params.value}</Link>
+    )
 }
 
 export default function TestAgGrid() {
@@ -26,8 +30,8 @@ export default function TestAgGrid() {
     () => [
       { field: 'athlete' },
       { field: 'age', cellRendererFramework: MyRenderer },
-      { field: 'country', cellRendererFramework: MyRenderer },
-      { field: 'year', cellRendererFramework: MyRenderer },
+      { field: 'country', cellRendererFramework: LinkRenderer },
+      { field: 'year', cellRendererFramework: LinkRenderer },
       { field: 'date' },
       { field: 'sport' },
       { field: 'gold' },
